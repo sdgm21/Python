@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from reactpy import component, html
 from reactpy.backend.fastapi import configure
-from reactpy.types import VdomDict
+from reactpy.types import *
 
 FastApp = FastAPI()
 
