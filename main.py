@@ -1,20 +1,29 @@
-
 from fastapi import FastAPI
 from reactpy import component, html
 from reactpy.backend.fastapi import configure
 from reactpy.types import VdomDict
-app = FastAPI()
+
+FastApp = FastAPI()
+
 
 @component
 def Header() -> VdomDict:
-    return html.header(
-        html.h1("HEADer")
-    )
-    
+    return html.header(html.h1("Header"))
+
+
 @component
 def Main() -> VdomDict:
-    return html.main(Header())
+    return html.main(html.h1("Main"))
 
 
+@component
+def Footer() -> VdomDict:
+    return html.footer(html.h1("Footer"))
 
-configure(app, Main)
+
+@component
+def WebApp():
+    return html._(Header(), Main(), Footer())
+
+
+configure(FastApp, WebApp)
